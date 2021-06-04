@@ -12,7 +12,6 @@ export function* requestCountriesSaga(): Generator<
   > {
   try {
     const countries = yield call(fetchCountries);
-    console.log(countries)
     yield put(requestCountriesSuccessful({ countries }));
   } catch (err) {
     yield put(requestCountriesFailed());

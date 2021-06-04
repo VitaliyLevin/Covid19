@@ -1,9 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import './App.css';
+import Header from './components/Header';
 import { requestCountries } from './store/reducer/country';
 
-function App(): JSX.Element {
+const AppWrapper = styled.div`
+ width: 1920px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ margin: 0 auto;
+`
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1800px;
+`;
+
+const App = (): JSX.Element => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(requestCountries())
@@ -12,8 +28,11 @@ function App(): JSX.Element {
     // }
   }, [])
   return (
-    <div className="App">
-    </div>
+    <AppWrapper>
+      <ContentWrapper>
+        <Header />
+      </ContentWrapper>
+    </AppWrapper>
   );
 }
 
