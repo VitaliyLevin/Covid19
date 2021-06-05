@@ -21,6 +21,6 @@ export interface IRequestCountriesSuccessful {
   countries: ICountry[];
 }
 
-export interface ICountryName {
+export type ICountryName = {
   countryName: string
 }
