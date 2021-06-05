@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyledInput } from './styled';
 
 type PropsType = {
   type: string;
@@ -10,7 +11,7 @@ type PropsType = {
 const Input = ({ type, onHandleInputChange, value, placeholder }: PropsType): JSX.Element => {
   return (
     <>
-      <input
+      <StyledInput
         type={type}
         onChange={onHandleInputChange}
         value={value}

@@ -5,12 +5,12 @@ import Input from '../../pages/Input';
 import { StyledHeader, SearchWrapper, LogoWrapper } from './styled'
 
 const Header = (): JSX.Element => {
-  const [value, setValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const onHandleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value } = e.target
-    setValue(value)
+    setInputValue(value)
   }
-  console.log(value)
+  console.log(inputValue)
   return (
     <StyledHeader>
       <LogoWrapper>
@@ -21,7 +21,7 @@ const Header = (): JSX.Element => {
         <Input
           type='search'
           onHandleInputChange={onHandleInputChange}
-          value={value}
+          value={inputValue}
           placeholder="Search"
         />
         <img src={search} alt="magnifying glass picture" />

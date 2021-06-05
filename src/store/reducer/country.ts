@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IInitialState, IRequestCountriesSuccessful } from '../interfaces/index'
+import { ICountry, ICountryName, IInitialState, IRequestCountriesSuccessful } from '../interfaces/index'
 
 const initialState: IInitialState = {
-  loader: false,
+  loader: true,
   countries: [],
-  error: ''
+  error: '',
+  countryName: ''
 }
 
 export const countriesSlise = createSlice({
@@ -21,6 +22,9 @@ export const countriesSlise = createSlice({
     },
     requestCountriesFailed(state: IInitialState) {
       state.error = 'Something went wrong';
+    },
+    onChangeConuntryInput(state: IInitialState, action: PayloadAction<ICountryName>) {
+      state.countryName = action.payload.countryName
     }
   }
 });
@@ -32,3 +36,5 @@ export const {
 } = countriesSlise.actions;
 
 export const { reducer } = countriesSlise;
+
+export type State = ReturnType<typeof reducer>;

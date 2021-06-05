@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
+import Table from './components/Table';
 import { requestCountries } from './store/reducer/country';
 
 const AppWrapper = styled.div`
@@ -31,6 +32,7 @@ const App = (): JSX.Element => {
     <AppWrapper>
       <ContentWrapper>
         <Header />
+        <Table />
       </ContentWrapper>
     </AppWrapper>
   );
