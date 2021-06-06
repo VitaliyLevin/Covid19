@@ -1,6 +1,6 @@
 export interface ResponseData {
   Countries: ICountry[]
-}
+};
 
 export interface ICountry {
   Country: string,
@@ -8,7 +8,7 @@ export interface ICountry {
   TotalConfirmed: number,
   TotalDeaths: number,
   TotalRecovered: number
-}
+};
 
 export interface IInitialState {
   loader: boolean,
@@ -16,12 +16,8 @@ export interface IInitialState {
   error: string,
   countryName: string,
   selectedCountry?: ICountry
-}
+};
 
 export interface IRequestCountriesSuccessful {
   countries: ICountry[];
-}
-
-export type ICountryName = {
-  countryName: string
-}
+};

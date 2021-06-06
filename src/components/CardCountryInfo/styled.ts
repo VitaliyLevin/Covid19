@@ -11,9 +11,10 @@ export const CardInfo = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-`
+`;
+
 export const CardWrapper = styled.div`
-box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,15 +23,15 @@ box-sizing: border-box;
   background: #FFFFFF;
   border-radius: 20px;
   padding: 20px;
-h2 {
-  margin: 0;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 56px;
-  color: #000000;
-  margin-bottom: 38px;
-}
+  h2 {
+    margin: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    color: #000000;
+    margin-bottom: 38px;
+  }
 `;
 
 export const Info = styled.table`
@@ -52,5 +53,4 @@ export const Info = styled.table`
   tr:last-child td {
     padding-bottom: 38px !important;
   }
-
-`
+`;

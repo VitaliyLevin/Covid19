@@ -11,9 +11,7 @@ export const StyledHeader = styled.div`
 
 export const LogoWrapper = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
-
 `;
 
 export const SearchWrapper = styled.div`

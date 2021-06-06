@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IInitialState, IRequestCountriesSuccessful } from '../interfaces/index'
+import { IInitialState, IRequestCountriesSuccessful } from '../interfaces/index';
 
 const initialState: IInitialState = {
   loader: true,
@@ -25,7 +25,7 @@ export const countriesSlise = createSlice({
       state.error = 'Something went wrong';
     },
     onChangeConuntryInput(state: IInitialState, action: PayloadAction<string>) {
-      state.countryName = action.payload
+      state.countryName = action.payload;
     },
     selectCountry(state: IInitialState, action: PayloadAction<string>) {
       state.selectedCountry = state.countries.find( item => item.Country === action.payload)

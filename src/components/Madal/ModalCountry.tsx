@@ -6,11 +6,11 @@ type PropsType = {
   children: JSX.Element
 }
 
-const modal: HTMLElement | null= document.getElementById('modal')
+const modal: HTMLElement | null = document.getElementById('modal')
 
 
-const ModalCountry = ({children}: PropsType): JSX.Element => {
-  const element: HTMLElement= document.createElement('div');
+const ModalCountry = ({ children }: PropsType): JSX.Element => {
+  const element: HTMLElement = document.createElement('div');
   const removeElement = () => {
     modal?.removeChild(element);
   }

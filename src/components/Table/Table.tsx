@@ -23,6 +23,7 @@ const Table = (): JSX.Element => {
   const onClickCountryRow = (name: string) => () => {
     dispatch(selectCountry(name))
   }
+
   return (
     <StyledTable>
       <thead>

@@ -9,7 +9,7 @@ type PropsType = {
 
 const TableRow = ({ number, name, total, onClickCountryRow }: PropsType): JSX.Element => {
   return (
-    <tr onClick={onClickCountryRow}> 
+    <tr onClick={onClickCountryRow}>
       <td>{number}</td>
       <td>{name}</td>
       <td>{total}</td>

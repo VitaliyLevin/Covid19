@@ -10,14 +10,12 @@ type PropsType = {
 
 const Input = ({ type, onHandleInputChange, value, placeholder }: PropsType): JSX.Element => {
   return (
-    <>
-      <StyledInput
-        type={type}
-        onChange={onHandleInputChange}
-        value={value}
-        placeholder={placeholder}
-      />
-    </>
+    <StyledInput
+      type={type}
+      onChange={onHandleInputChange}
+      value={value}
+      placeholder={placeholder}
+    />
   )
 };
 

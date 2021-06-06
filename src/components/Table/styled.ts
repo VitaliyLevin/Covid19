@@ -9,7 +9,6 @@ export const StyledTable = styled.table`
   line-height: 28px;
   border-spacing: 0px 20px;
   tr{
-    /* border-radius: 20px; */
     height: 80px;
     background: #2196F3;
     color: #fff;

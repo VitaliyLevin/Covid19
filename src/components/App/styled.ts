@@ -6,7 +6,7 @@ export const AppWrapper = styled.div`
  flex-direction: column;
  justify-content: center;
  margin: 0 auto;
-`
+`;
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;

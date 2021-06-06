@@ -16,8 +16,8 @@ export function* requestCountriesSaga(): Generator<
   } catch (err) {
     yield put(requestCountriesFailed());
   }
-}
+};
 
 export function* watchFetchCountris(): Generator {
   yield takeEvery(requestCountries, requestCountriesSaga);
-}
+};
