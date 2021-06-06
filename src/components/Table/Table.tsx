@@ -1,8 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TableRow from '../../pages/TableRow';
 import { ICountry } from '../../store/interfaces';
-import { State } from '../../store/reducer/country';
+import { selectCountry, State } from '../../store/reducer/country';
 import { RowInfo, StyledTable } from './styled';
 
 const countriesFilter = (countries: ICountry[], countryName: string): ICountry[] => {
@@ -17,7 +17,12 @@ const countriesFilter = (countries: ICountry[], countryName: string): ICountry[]
 
 const Table = (): JSX.Element => {
   const { countries, loader, countryName } = useSelector((state: State) => state);
+  const dispatch = useDispatch();
   const receivedСountries = countriesFilter(countries, countryName);
+
+  const onClickCountryRow = (name: string) => () => {
+    dispatch(selectCountry(name))
+  }
   return (
     <StyledTable>
       <thead>
@@ -36,6 +41,7 @@ const Table = (): JSX.Element => {
               number={i + 1}
               name={country.Country}
               total={country.TotalConfirmed}
+              onClickCountryRow={onClickCountryRow(country.Country)}
             />
           ))
           : <RowInfo><td colSpan={3}>Not found</td></RowInfo>

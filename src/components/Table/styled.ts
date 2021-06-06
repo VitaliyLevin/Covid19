@@ -8,9 +8,8 @@ export const StyledTable = styled.table`
   font-size: 24px;
   line-height: 28px;
   border-spacing: 0px 20px;
-  thead tr, tbody tr{
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+  tr{
+    /* border-radius: 20px; */
     height: 80px;
     background: #2196F3;
     color: #fff;
@@ -22,6 +21,11 @@ export const StyledTable = styled.table`
   }
   th, td {
     padding-left: 23px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25) !important;
+  }
+  td {
+    cursor: pointer;
   }
   th:first-child, td:first-child {
     width: 78px;
@@ -38,16 +42,15 @@ export const StyledTable = styled.table`
     border-right: 1px solid #fff;
   }
   td:nth-child(2) {
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
+    border-left: 1px solid #B2B2B2;
+    border-right: 1px solid #B2B2B2;
   }
 `;  
 
 export const RowInfo = styled.tr`
   td {
   text-align: center;
-  /* background: blues; */
-  border-radius: 20px;
+  border-radius: 20px !important;
   color: #2196F3;
   font-style: normal;
   font-weight: bold;

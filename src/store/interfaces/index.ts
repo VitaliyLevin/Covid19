@@ -14,7 +14,8 @@ export interface IInitialState {
   loader: boolean,
   countries: ICountry[],
   error: string,
-  countryName: string
+  countryName: string,
+  selectedCountry?: ICountry
 }
 
 export interface IRequestCountriesSuccessful {

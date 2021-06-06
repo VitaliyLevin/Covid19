@@ -5,7 +5,8 @@ const initialState: IInitialState = {
   loader: true,
   countries: [],
   error: '',
-  countryName: ''
+  countryName: '',
+  selectedCountry: undefined
 }
 
 export const countriesSlise = createSlice({
@@ -25,6 +26,12 @@ export const countriesSlise = createSlice({
     },
     onChangeConuntryInput(state: IInitialState, action: PayloadAction<string>) {
       state.countryName = action.payload
+    },
+    selectCountry(state: IInitialState, action: PayloadAction<string>) {
+      state.selectedCountry = state.countries.find( item => item.Country === action.payload)
+    },
+    clearSelectedCountry(state: IInitialState) {
+      state.selectedCountry = undefined;
     }
   }
 });
@@ -33,7 +40,9 @@ export const {
   requestCountries,
   requestCountriesSuccessful,
   requestCountriesFailed,
-  onChangeConuntryInput
+  onChangeConuntryInput,
+  selectCountry,
+  clearSelectedCountry
 } = countriesSlise.actions;
 
 export const { reducer } = countriesSlise;
