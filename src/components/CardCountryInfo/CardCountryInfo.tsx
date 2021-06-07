@@ -5,7 +5,7 @@ import { CardInfo, CardWrapper, Info } from './styled';
 import heartbeat from '../../assets/imgs/heartbeat.svg';
 import skull from '../../assets/imgs/skull.svg';
 import filemedical from '../../assets/imgs/filemedical.svg';
-import Button from '../../pages/Button';
+import Button from '../Button';
 
 const CardCountryInfo = (): JSX.Element => {
   const { selectedCountry } = useSelector((state: State) => state)

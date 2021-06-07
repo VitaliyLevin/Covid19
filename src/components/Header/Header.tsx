@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import logo from '../../assets/imgs/logo.svg';
 import search from '../../assets/imgs/search.svg';
-import Input from '../../pages/Input';
+import Input from '../Input';
 import { onChangeConuntryInput } from '../../store/reducer/country';
 import { StyledHeader, SearchWrapper, LogoWrapper } from './styled'
 

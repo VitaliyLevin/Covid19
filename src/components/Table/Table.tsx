@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import TableRow from '../../pages/TableRow';
+import TableRow from '../TableRow';
 import { ICountry } from '../../store/interfaces';
 import { selectCountry, sortingCountry, State } from '../../store/reducer/country';
 import { RowInfo, StyledTable } from './styled';
 
+const SORTING_ASC = 'asc';
+const SORTING_DESC = 'desc';
+
 const filterableTableHeaders: { [index: string]: string } = {
   'Total Confirmed': 'TotalConfirmed',
   'Country': 'Country'
-}
+};
 
-const countriesFilter = (countries: ICountry[], countryName: string): ICountry[] => {
+const filterCountries = (countries: ICountry[], countryName: string): ICountry[] => {
   if (!countryName) {
     return countries
   }
@@ -21,22 +24,24 @@ const countriesFilter = (countries: ICountry[], countryName: string): ICountry[]
 };
 
 const Table = (): JSX.Element => {
-  const [nameCell, setNameCell] = useState('');
+  const [CellNameForSorting, setCellNameForSorting] = useState('');
   const [sorting, setSorting] = useState('');
   const { countries, loader, countryName } = useSelector((state: State) => state);
   const dispatch = useDispatch();
-  const receivedСountries = countriesFilter(countries, countryName);
+  const receivedСountries = filterCountries(countries, countryName);
 
   const setSortingType = (e: React.SyntheticEvent): void => {
     e.preventDefault()
     const value = e.target as Element;
-    setNameCell(filterableTableHeaders[value.innerHTML]);
-    let isSorting = 'asc';
-    if (filterableTableHeaders[value.innerHTML] === nameCell) {
-      isSorting = sorting === 'desc' ? 'asc' : 'desc';
+    const selectedCellName = filterableTableHeaders[value.innerHTML]
+    setCellNameForSorting(selectedCellName);
+    let isSorting = SORTING_ASC;
+    
+    if (selectedCellName === CellNameForSorting) {
+      isSorting = sorting === SORTING_DESC ? SORTING_ASC : SORTING_DESC;
     }
     setSorting(isSorting);
-    dispatch(sortingCountry({ sorting: isSorting, nameCell: filterableTableHeaders[value.innerHTML] }))
+    dispatch(sortingCountry({ sorting: isSorting, cellNameToSort: selectedCellName }))
   };
 
   const onClickCountryRow = (name: string) => () => {

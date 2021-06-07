@@ -15,13 +15,11 @@ const App = (): JSX.Element => {
   }, [])
   return (
     <AppWrapper>
-      {
-        selectedCountry
-        &&
+      {selectedCountry && (
         <ModalCountry>
           <CardCountryInfo />
         </ModalCountry>
-      }
+      )}
       <ContentWrapper>
         <Header />
         <Table />

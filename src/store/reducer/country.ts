@@ -36,9 +36,13 @@ export const countriesSlise = createSlice({
     sortingCountry(state: IInitialState, action: PayloadAction<SortingPayload>) {
       const arr = [...state.countries];
       if (action.payload.sorting === 'asc') {
-        arr.sort((a: ICountry, b: ICountry) => a[action.payload.nameCell] > b[action.payload.nameCell] ? 1 : -1)
+        arr.sort((a: ICountry, b: ICountry) => {
+          return a[action.payload.cellNameToSort] > b[action.payload.cellNameToSort] ? 1 : -1;
+        })
       } else {
-        arr.sort((a: ICountry, b: ICountry) => b[action.payload.nameCell] > a[action.payload.nameCell] ? 1 : -1);
+        arr.sort((a: ICountry, b: ICountry) => {
+          return b[action.payload.cellNameToSort] > a[action.payload.cellNameToSort] ? 1 : -1;
+        })
       }
       state.countries = arr;
     },

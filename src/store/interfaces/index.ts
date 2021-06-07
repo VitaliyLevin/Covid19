@@ -25,5 +25,5 @@ export interface IRequestCountriesSuccessful {
 
 export interface SortingPayload {
   sorting: string,
-  nameCell: string
+  cellNameToSort: string
 }
