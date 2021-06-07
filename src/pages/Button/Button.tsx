@@ -3,7 +3,7 @@ import { StyledButton } from './styled';
 
 type PropsType = {
   children: string;
-  onClearSelectedCountry: () => void;
+  onClearSelectedCountry: (e:React.SyntheticEvent) => void;
 }
 
 const Button = ({children, onClearSelectedCountry}: PropsType): JSX.Element => {

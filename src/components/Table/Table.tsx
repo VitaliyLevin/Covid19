@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import TableRow from '../../pages/TableRow';
 import { ICountry } from '../../store/interfaces';
-import { selectCountry, State } from '../../store/reducer/country';
+import { selectCountry, sortingCountry, State } from '../../store/reducer/country';
 import { RowInfo, StyledTable } from './styled';
+
+const filterableTableHeaders: { [index: string]: string } = {
+  'Total Confirmed': 'TotalConfirmed',
+  'Country': 'Country'
+}
 
 const countriesFilter = (countries: ICountry[], countryName: string): ICountry[] => {
   if (!countryName) {
@@ -16,21 +21,35 @@ const countriesFilter = (countries: ICountry[], countryName: string): ICountry[]
 };
 
 const Table = (): JSX.Element => {
+  const [nameCell, setNameCell] = useState('');
+  const [sorting, setSorting] = useState('');
   const { countries, loader, countryName } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const receivedСountries = countriesFilter(countries, countryName);
 
+  const setSortingType = (e: React.SyntheticEvent): void => {
+    e.preventDefault()
+    const value = e.target as Element;
+    setNameCell(filterableTableHeaders[value.innerHTML]);
+    let isSorting = 'asc';
+    if (filterableTableHeaders[value.innerHTML] === nameCell) {
+      isSorting = sorting === 'desc' ? 'asc' : 'desc';
+    }
+    setSorting(isSorting);
+    dispatch(sortingCountry({ sorting: isSorting, nameCell: filterableTableHeaders[value.innerHTML] }))
+  };
+
   const onClickCountryRow = (name: string) => () => {
     dispatch(selectCountry(name))
-  }
+  };
 
   return (
     <StyledTable>
       <thead>
         <tr>
           <th>№</th>
-          <th>Country</th>
-          <th>Total Confirmed</th>
+          <th onClick={setSortingType}>Country</th>
+          <th onClick={setSortingType}>Total Confirmed</th>
         </tr>
       </thead>
       <tbody>

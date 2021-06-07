@@ -10,7 +10,8 @@ import Button from '../../pages/Button';
 const CardCountryInfo = (): JSX.Element => {
   const { selectedCountry } = useSelector((state: State) => state)
   const dispatch = useDispatch()
-  const onClearSelectedCountry = (): void => {
+  const onClearSelectedCountry = (e: React.SyntheticEvent): void => {
+    e.preventDefault();
     dispatch(clearSelectedCountry())
   }
   return (

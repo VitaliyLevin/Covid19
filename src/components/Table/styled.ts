@@ -23,7 +23,7 @@ export const StyledTable = styled.table`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25) !important;
   }
-  td {
+  td, th:nth-child(n+2) {
     cursor: pointer;
   }
   th:first-child, td:first-child {

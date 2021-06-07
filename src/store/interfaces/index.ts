@@ -7,7 +7,8 @@ export interface ICountry {
   ID: string,
   TotalConfirmed: number,
   TotalDeaths: number,
-  TotalRecovered: number
+  TotalRecovered: number,
+  [index: string]: string | number
 };
 
 export interface IInitialState {
@@ -19,5 +20,10 @@ export interface IInitialState {
 };
 
 export interface IRequestCountriesSuccessful {
-  countries: ICountry[];
+  countries: ICountry[],
 };
+
+export interface SortingPayload {
+  sorting: string,
+  nameCell: string
+}

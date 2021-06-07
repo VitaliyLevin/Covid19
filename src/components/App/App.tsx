@@ -4,7 +4,7 @@ import Header from '../Header';
 import Table from '../Table';
 import { requestCountries, State } from '../../store/reducer/country';
 import { AppWrapper, ContentWrapper } from './styled';
-import ModalCountry from '../Madal/ModalCountry';
+import ModalCountry from '../Modal/ModalCountry';
 import CardCountryInfo from '../CardCountryInfo';
 
 const App = (): JSX.Element => {
