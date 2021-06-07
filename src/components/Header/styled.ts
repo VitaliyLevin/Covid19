@@ -18,6 +18,7 @@ export const SearchWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   width: 600px;
   height: 80px;
   padding: 12px 24px 12px 32px;
